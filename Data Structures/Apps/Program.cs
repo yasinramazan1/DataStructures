@@ -2,8 +2,7 @@
 
 
 
-using System.Collections;
-using System.Linq;
+using DataStructures.LinkedList.SinglyLinkedList;
 
 namespace Apps
 {
@@ -11,6 +10,47 @@ namespace Apps
     {
         static void Main(string[] args)
         {
+            var linkedList = new SinglyLinkedList<int>();
+            linkedList.addFirst(1);
+            linkedList.addFirst(2);
+            linkedList.addFirst(3);
+
+            // 3 2 1  
+
+            linkedList.addLast(4);
+            linkedList.addLast(5);
+
+            // 3 2 1 4 5 olacaktır. Bu sebeple bağlı listelerde karmaşıklık ekleme işlemi için O(n)'dir diyebiliriz.
+
+            linkedList.addAfter(linkedList.head.next, 32);
+
+            // 3 2 32 1 4 5 olacaktır. 
+
+            linkedList.addAfter(linkedList.head.next.next.next, 45);
+
+            Console.ReadKey();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             //var p1 = new DataStructures.Array.Array<int>(1,2,3,4);
             //var p2 = new int[] { 5, 6, 7, 8 };
             //var p3 = new List<int>() { 9, 10, 11, 12 };
@@ -37,27 +77,27 @@ namespace Apps
             //    Console.WriteLine(item);
             //}
 
-            var arr = new DataStructures.Array.Array<int>(1,3,5,7);
-            // var crr = (DataStructures.Array.Array<int>)arr.Clone();
-            var crr = arr.Clone() as DataStructures.Array.Array<int>;
+            //var arr = new DataStructures.Array.Array<int>(1,3,5,7);
+            //// var crr = (DataStructures.Array.Array<int>)arr.Clone();
+            //var crr = arr.Clone() as DataStructures.Array.Array<int>;
 
-            arr.add(89); // Klonlanmış nesne ile ilk nesne arasında referans ilişkisi olmadığı için değişiklikler o nesne ile sınırlı kalacaktır.
-            // deep copy'de nesne sıfırdan oluşturulur ancak yine referans yoktur.
-            foreach (var item in arr)
-            {
-                Console.Write($"{item, -3}");
-            }
-            Console.WriteLine($"{arr.Count}/{arr.Capacity}");
+            //arr.add(89); // Klonlanmış nesne ile ilk nesne arasında referans ilişkisi olmadığı için değişiklikler o nesne ile sınırlı kalacaktır.
+            //// deep copy'de nesne sıfırdan oluşturulur ancak yine referans yoktur.
+            //foreach (var item in arr)
+            //{
+            //    Console.Write($"{item, -3}");
+            //}
+            //Console.WriteLine($"{arr.Count}/{arr.Capacity}");
 
-            Console.WriteLine();           
+            //Console.WriteLine();           
 
-            foreach (var item in crr)
-            {
-                Console.Write($"{item,-3}");
-            }
-            Console.WriteLine($"{crr.Count}/{crr.Capacity}");
+            //foreach (var item in crr)
+            //{
+            //    Console.Write($"{item,-3}");
+            //}
+            //Console.WriteLine($"{crr.Count}/{crr.Capacity}");
 
-            Console.ReadKey();
+            //Console.ReadKey();
         }
 
         /* void diziIslemleri()
@@ -77,39 +117,39 @@ namespace Apps
         }
         */
 
-        void Bilgiler()
-        {
-            // Array 
-            var arrayChar = new char[] { 'y', 'r', 'g' }; // Bu dizi sabit boyutludur.
-            var arrayInt = Array.CreateInstance(typeof(int), 5);
-            arrayInt.SetValue(8, 0); // arrayInt[0] = 8 değerini atar.
-            arrayInt.GetValue(0); // 0. indexteki elemanı döndürür. Yani 8 
-            Console.WriteLine(arrayInt.Length);
+        //void Bilgiler()
+        //{
+        //    // Array 
+        //    var arrayChar = new char[] { 'y', 'r', 'g' }; // Bu dizi sabit boyutludur.
+        //    var arrayInt = Array.CreateInstance(typeof(int), 5);
+        //    arrayInt.SetValue(8, 0); // arrayInt[0] = 8 değerini atar.
+        //    arrayInt.GetValue(0); // 0. indexteki elemanı döndürür. Yani 8 
+        //    Console.WriteLine(arrayInt.Length);
 
 
-            // ArrayList 
-            // Dizi üzerinde yönetimsel fonksiyonlara ihtiyaç duyulduğunda Array yerine ArrayList kullanılmalıdır.
-            // type-safe yoktur.
-            // 5 -> boxing -> object
-            // a -> boxing -> object
-            // object -> unboxing - int
-            var arrayObj = new ArrayList();
-            arrayObj.Add(5);
-            arrayObj.Add('a');
-            Console.WriteLine(arrayObj.Count);
+        //    // ArrayList 
+        //    // Dizi üzerinde yönetimsel fonksiyonlara ihtiyaç duyulduğunda Array yerine ArrayList kullanılmalıdır.
+        //    // type-safe yoktur.
+        //    // 5 -> boxing -> object
+        //    // a -> boxing -> object
+        //    // object -> unboxing - int
+        //    var arrayObj = new ArrayList();
+        //    arrayObj.Add(5);
+        //    arrayObj.Add('a');
+        //    Console.WriteLine(arrayObj.Count);
 
-            // List<T> 
-            // Genelde işlem yapılan veri yapıları koleksiyon türüne indirgenerek tanımlanır.
-            var arrInt = new List<int>();
-            arrInt.Add(10);
-            arrInt.AddRange(new int[] { 1, 2, 3 });
-            arrInt.RemoveAt(0);
-            Console.WriteLine(arrInt.Count);
-            foreach (var item in arrInt)
-            {
-                Console.WriteLine(item);
-            }
-            Console.ReadKey();
-        }
+        //    // List<T> 
+        //    // Genelde işlem yapılan veri yapıları koleksiyon türüne indirgenerek tanımlanır.
+        //    var arrInt = new List<int>();
+        //    arrInt.Add(10);
+        //    arrInt.AddRange(new int[] { 1, 2, 3 });
+        //    arrInt.RemoveAt(0);
+        //    Console.WriteLine(arrInt.Count);
+        //    foreach (var item in arrInt)
+        //    {
+        //        Console.WriteLine(item);
+        //    }
+        //    Console.ReadKey();
+        //}
     }
 }
